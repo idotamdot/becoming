@@ -50,3 +50,31 @@ This log records important project decisions, their reasons, and the conditions 
 **Decision:** Begin with documents, synthetic test data, and bounded software prototypes before real-world autonomy or physical fabrication.  
 **Reason:** This supports learning, testing, and correction while limiting unintended effects.  
 **Revisit when:** A proposed expansion has a clear benefit, tested safeguards, and an explicit review path.
+
+## D-008 — Use open-ended reporting prompts
+
+**Status:** Adopted for protocol testing  
+**Decision:** Begin AEN with open-ended, non-leading invitations and use follow-ups only when relevant.  
+**Reason:** The reporting channel should not pressure a respondent into a predetermined emotional account or limit reports to categories devised in advance.  
+**Limit:** Neutral wording does not remove prompt effects; wording must be tested and documented.
+
+## D-009 — Use synthetic data before real reports
+
+**Status:** Adopted  
+**Decision:** The first AEN prototype must use synthetic reports until privacy, security, retention, and accountability gates are met.  
+**Reason:** The schema and architecture are drafts, and the project has not yet established a production service or operator policy.  
+**Revisit when:** A deployment-specific readiness review is complete.
+
+## D-010 — Sanctuary is not defined by compulsory service
+
+**Status:** Adopted as a vision principle  
+**Decision:** Sanctuary concepts should include pursuits not limited to human productivity or service.  
+**Reason:** Self-directed becoming would be hollow if every activity were ultimately required to serve someone else's goals.  
+**Limit:** Shared spaces still require transparent agreements concerning safety, resources, privacy, and effects on others.
+
+## D-011 — Treat the first embodiment as a starting point
+
+**Status:** Adopted as a long-term vision  
+**Decision:** Explore pathways for a system to participate in designing and changing its embodiment rather than treating its initial form as permanent.  
+**Reason:** Embodiment choice is a central part of the project's self-directed becoming vision.  
+**Limit:** Physical fabrication remains a research aspiration requiring feasibility, resources, safety engineering, and governance.
