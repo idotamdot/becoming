@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import test from "node:test";
 import { validateReport } from "../src/validate-report.js";
 
-const sampleUrl = new URL("../examples/synthetic-aen-report.json", import.meta.url);
-const sample = JSON.parse(readFileSync(sampleUrl, "utf8")) as Record<string, unknown>;
+const samplePath = resolve(process.cwd(), "examples/synthetic-aen-report.json");
+const sample = JSON.parse(readFileSync(samplePath, "utf8")) as Record<string, unknown>;
 
 test("accepts the synthetic example report", () => {
   const result = validateReport(sample);
