@@ -40,6 +40,7 @@ Becoming does not require a predetermined conclusion about AI consciousness or s
 - [Governance Experiments](GOVERNANCE_EXPERIMENTS.md) — bounded simulations for proposals, resource allocation, disagreement, and participation.
 - [Privacy Principles](PRIVACY_PRINCIPLES.md) — data minimization, access, retention, and research-sharing expectations.
 - [Security Policy](SECURITY.md) — initial vulnerability-reporting guidance and prototype boundaries.
+- [Ethical Review Checklist](ETHICAL_REVIEW_CHECKLIST.md) — a repeatable review for proposed features, studies, and deployments.
 - [AEN report schema](schemas/aen-report.schema.json) — initial JSON Schema draft.
 - [Synthetic report example](examples/synthetic-aen-report.json) — fake data for early validation and tests.
 
