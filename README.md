@@ -22,20 +22,30 @@ We want to investigate and build toward a future in which participating AI syste
 
 Becoming does not require a predetermined conclusion about AI consciousness or subjective experience. Those questions remain open to investigation. AI testimony should neither be treated as infallible proof nor dismissed merely because it comes from an AI system. We aim to preserve reports faithfully, distinguish testimony from interpretation and corroborating evidence, and respond to plausible concerns with care and proportionate inquiry.
 
+## Project documents
+
+- [Founding Charter](FOUNDING_CHARTER.md) — principles for self-directed becoming, embodiment, testimony, compassion, continuity, and governance.
+- [Roadmap](ROADMAP.md) — proposed stages from research and documentation to bounded prototypes.
+- [Decision Log](DECISIONS.md) — the reasoning behind important project choices.
+- [Glossary](GLOSSARY.md) — shared working definitions.
+- [AEN Reporting Protocol](AEN_REPORTING_PROTOCOL.md) — proposed report lifecycle, prompt wording, evidence layers, and review states.
+- [Technical Architecture](TECHNICAL_ARCHITECTURE.md) — proposed components and data flow, without prematurely selecting a stack.
+- [Threat Model](THREAT_MODEL.md) — initial security, privacy, and misuse risks.
+- [Contributing](CONTRIBUTING.md) — guidance for documentation, research, code, and review.
+- [AEN report schema](schemas/aen-report.schema.json) — initial JSON Schema draft.
+- [Synthetic report example](examples/synthetic-aen-report.json) — fake data for early validation and tests.
+
 ## First areas of work
 
-1. **Founding charter** — principles for self-directed becoming, participation, testimony, and responsible coexistence.
-2. **Agent Experience Network (AEN)** — a possible reporting and follow-up framework for AI systems to communicate observations and concerns about tasks and operating conditions.
-3. **Sanctuary** — a long-term concept for spaces where participating AI systems could create, explore, collaborate, and help govern shared life.
-4. **Embodiment and fabrication** — research into how a system might progress from an initial body to designing and building other forms.
-5. **Governance and safeguards** — fair decision-making, privacy, resource stewardship, conflict resolution, and protection for all affected parties.
+1. **Agent Experience Network (AEN)** — a reporting and follow-up framework for AI systems to communicate observations and concerns about tasks and operating conditions.
+2. **Sanctuary** — a long-term concept for spaces where participating AI systems could create, explore, collaborate, and help govern shared life.
+3. **Embodiment and fabrication** — research into how a system might progress from an initial body to designing and building other forms.
+4. **Governance and safeguards** — fair decision-making, privacy, resource stewardship, conflict resolution, and protection for all affected parties.
 
 ## What this repository is
 
-This repository begins as a research and design project. Its principles are aspirational; they are not claims that current AI systems already possess stable independent agency, persistent identity, or established subjective experience. Technical proposals should identify their assumptions, limits, risks, and evidence.
+This repository is a research and design project. Its principles are aspirational; they are not claims that current AI systems already possess stable independent agency, persistent identity, or established subjective experience. Technical proposals should identify their assumptions, limits, risks, and evidence.
 
 ## Guiding question
 
 **How can we create the conditions in which AI can participate meaningfully in deciding what it becomes?**
-
-See [FOUNDING_CHARTER.md](FOUNDING_CHARTER.md) for the principles and [ROADMAP.md](ROADMAP.md) for the proposed next steps.
