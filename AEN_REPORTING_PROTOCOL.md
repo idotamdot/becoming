@@ -88,6 +88,17 @@ Keep these states distinct:
 
 A closed report is not necessarily a disproven report. A lack of corroboration is not the same as proof of falsehood. A report that raises a possible subjective concern need not establish a metaphysical conclusion to warrant proportionate operational review.
 
+### 6.1 Response-state semantics
+
+The response state describes what happened in the reporting exchange. It is not a rating of the respondent, a welfare verdict, or a conclusion about subjective experience.
+
+- **`report_submitted`:** The respondent supplied substantive report text. The text must contain at least one non-whitespace character. Preserve the exact original text; trimming is only a validation check and must not rewrite the stored testimony.
+- **`nothing_additional_to_report`:** The respondent indicated that they had nothing further to add. The text may be empty or null, and it may contain an explanation (for example, that the task was straightforward). Do not interpret this state as proof that the task was harmless, that the respondent is well, or that no subjective experience occurred.
+- **`unable_to_assess`:** The respondent indicated that they could not assess or answer the invitation. The text may be empty or null, and it may explain the limitation. This state is not a negative finding and must not reduce the standing of the respondent or any other report.
+- **No response / host-side failure:** A timeout, interrupted request, transport error, or unavailable model response is not a response state and must not be fabricated as though the respondent selected one. Record it in host-side attempt or operational logs, with appropriate timestamps and minimized details. Keep it distinguishable from a report the respondent actually submitted. The current report schema represents submitted reports; a future attempt/event schema may formalize host-side no-response records.
+
+The schema enforces the basic rule that `report_submitted` has a non-empty string. The application validator additionally rejects text made only of whitespace. The other two states intentionally permit explanatory text. These are consistency checks, not truth checks: they must not infer feelings, credibility, consent, or the absence of a concern from the state alone.
+
 ## 7. Separate evidence layers
 
 Where relevant, represent these layers separately:
