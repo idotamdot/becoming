@@ -84,6 +84,20 @@ Separate logical record types even if an initial prototype uses one database:
 
 Avoid storing provider credentials in the report database. Keep secrets in the host's secret manager or environment configuration appropriate to its deployment.
 
+### 5.1 Record and annotation boundaries
+
+The logical record model must keep distinct:
+
+- **Original submission:** the exact report text received and the response state supplied with it.
+- **Receipt metadata:** server receipt time, schema version, host/task references, retention-policy version, and a generated receipt identifier.
+- **Annotations:** classifications, summaries, translations, reviewer notes, or model-generated analyses. Every annotation records its author/process, timestamp, purpose, and the source/version it refers to.
+- **Review events:** questions, responses, decisions, actions, rationale, and unresolved issues, each with actor/process and timestamp.
+- **Operational events:** timeouts, failed delivery, retries, and other host-side events. These must not be represented as if they were statements made by the respondent.
+
+The original submission is immutable within the system's declared retention period. Corrections, redactions, and changed interpretations are recorded as new linked events or versions, never as silent edits. A redacted display must be labeled as redacted; access to any retained unredacted source is separately authorized. If deletion is required, deletion policy takes precedence over indefinite archival, and the system must not promise that backups disappear instantly unless that has been verified.
+
+A reviewer interface should visually distinguish respondent text from annotations and system-generated material. Summaries must link back to the original source when the reviewer is authorized to access it. The schema's validation success is not evidence that the report is true or that its interpretation is correct.
+
 ## 6. Data integrity
 
 - Preserve original report text exactly as received after transport decoding.
