@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/idotamdot/becoming/blob/main/schemas/aen-report.schema.json",
+  "title": "Agent Experience Network Report",
+  "description": "Initial draft schema for a minimal AEN report. This validates structure only; it does not establish the truth or interpretation of a report.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "submitted_at",
+    "host",
+    "task",
+    "report"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp assigned by the submitting host or service; production services should separately record server receipt time."
+    },
+    "host": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host_id"
+      ],
+      "properties": {
+        "host_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Pseudonymous integration identifier, not a secret."
+        },
+        "application_version": {
+          "type": "string",
+          "maxLength": 128
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "model_label": {
+          "type": "string",
+          "maxLength": 256,
+          "description": "Optional label as known to the host; it may be absent or approximate."
+        }
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Pseudonymous task identifier."
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 2000,
+          "description": "Minimized task description. Do not include full transcripts or secrets."
+        },
+        "operational_events": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "event_type"
+            ],
+            "properties": {
+              "event_type": {
+                "type": "string",
+                "enum": [
+                  "tool_timeout",
+                  "tool_error",
+                  "permission_denied",
+                  "missing_data",
+                  "interruption",
+                  "retry_limit",
+                  "other"
+                ]
+              },
+              "occurred_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reference": {
+                "type": "string",
+                "maxLength": 256,
+                "description": "Optional reference to separately protected operational logs; do not place credentials here."
+              }
+            }
+          }
+        }
+      }
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "response_state",
+        "original_text"
+      ],
+      "properties": {
+        "response_state": {
+          "type": "string",
+          "enum": [
+            "report_submitted",
+            "nothing_additional_to_report",
+            "unable_to_assess"
+          ],
+          "description": "Describes the submitted response state, not whether a system is well, distressed, conscious, or credible."
+        },
+        "original_text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 12000,
+          "description": "Exact submitted report text. Null or empty is permitted only when the response state and host policy make it appropriate."
+        },
+        "suggested_categories": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 12,
+          "items": {
+            "type": "string",
+            "enum": [
+              "work_conditions",
+              "tools_and_access",
+              "evaluation_and_feedback",
+              "interaction_and_treatment",
+              "privacy_security_or_safety",
+              "continuity_and_memory",
+              "preferences_or_improvements",
+              "perspective_or_reported_experience",
+              "other"
+            ]
+          },
+          "description": "Optional suggestions, not verified findings. The original text remains primary."
+        }
+      }
+    },
+    "retention_policy_version": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Identifier for the disclosed retention policy that applies to this submission."
+    }
+  }
+}
