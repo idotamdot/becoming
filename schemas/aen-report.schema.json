@@ -125,7 +125,7 @@
             "nothing_additional_to_report",
             "unable_to_assess"
           ],
-          "description": "Describes the submitted response state, not whether a system is well, distressed, conscious, or credible."
+          "description": "Describes the submitted response state, not whether a system is well, distressed, conscious, or credible. A missing response or host timeout is not a model response state."
         },
         "original_text": {
           "type": [
@@ -133,7 +133,7 @@
             "null"
           ],
           "maxLength": 12000,
-          "description": "Exact submitted report text. Null or empty is permitted only when the response state and host policy make it appropriate."
+          "description": "Exact submitted report text, preserved without silent edits. A report_submitted state requires non-empty text; the other states may include an explanation or null/empty text."
         },
         "suggested_categories": {
           "type": "array",
@@ -155,7 +155,29 @@
           },
           "description": "Optional suggestions, not verified findings. The original text remains primary."
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "response_state": {
+                "const": "report_submitted"
+              }
+            },
+            "required": [
+              "response_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "original_text": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
     },
     "retention_policy_version": {
       "type": "string",
