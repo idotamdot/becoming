@@ -2,6 +2,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import type { AnySchema, ErrorObject, ValidateFunction } from "ajv";
 import addFormats from "ajv-formats";
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 export interface ValidationIssue {
   path: string;
@@ -14,8 +15,8 @@ export interface ValidationResult {
 }
 
 function createValidator(): ValidateFunction {
-  const schemaUrl = new URL("../schemas/aen-report.schema.json", import.meta.url);
-  const schemaText = readFileSync(schemaUrl, "utf8");
+  const schemaPath = resolve(process.cwd(), "schemas/aen-report.schema.json");
+  const schemaText = readFileSync(schemaPath, "utf8");
   const schema = JSON.parse(schemaText) as AnySchema;
 
   const ajv = new Ajv2020({
