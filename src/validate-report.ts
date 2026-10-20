@@ -38,17 +38,44 @@ function normalizeErrors(errors: ErrorObject[] | null | undefined): ValidationIs
 }
 
 /**
- * Validate the structure of a report.
+ * Validate report structure and narrowly defined response-state consistency.
  *
- * This checks the JSON Schema only. It does not establish whether a report
- * is true, whether its interpretation is correct, or whether a system has
- * subjective experience.
+ * Validation does not establish whether a report is true, whether its
+ * interpretation is correct, or whether a system has subjective experience.
+ * It must not rewrite the original report text.
  */
 export function validateReport(report: unknown): ValidationResult {
-  const valid = validateAgainstSchema(report);
+  const schemaValid = validateAgainstSchema(report);
 
-  return {
-    valid,
-    errors: valid ? [] : normalizeErrors(validateAgainstSchema.errors),
+  if (!schemaValid) {
+    return {
+      valid: false,
+      errors: normalizeErrors(validateAgainstSchema.errors),
+    };
+  }
+
+  const reportObject = report as {
+    report: {
+      response_state: string;
+      original_text: string | null;
+    };
   };
+
+  if (
+    reportObject.report.response_state === "report_submitted" &&
+    typeof reportObject.report.original_text === "string" &&
+    reportObject.report.original_text.trim().length === 0
+  ) {
+    return {
+      valid: false,
+      errors: [
+        {
+          path: "/report/original_text",
+          message: "must contain non-whitespace text when response_state is report_submitted",
+        },
+      ],
+    };
+  }
+
+  return { valid: true, errors: [] };
 }
