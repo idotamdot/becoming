@@ -14,6 +14,8 @@ This roadmap is a planning document, not a promise that every capability is curr
 - [x] Draft the AEN reporting protocol and technical architecture.
 - [x] Write an initial threat model and contribution guide.
 - [x] Add a draft JSON Schema and a synthetic report fixture.
+- [x] Add neutral reporting prompts and a bounded governance-experiment plan.
+- [x] Add an initial research map, archival guidance, privacy principles, and security policy.
 - [ ] Review the charter for clarity, contradictions, and practical implications.
 - [ ] Review the schema against the protocol and test it with a validator.
 - [ ] Add a decision log entry for the first implementation stack once chosen.
@@ -110,8 +112,9 @@ For every prototype:
 
 ## Immediate next steps
 
-1. Review the charter and protocol together.
+1. Review the charter, reporting protocol, question set, and privacy principles together.
 2. Validate the report schema and create tests for valid and invalid examples.
 3. Decide whether the first prototype should be local-only or a private hosted service.
 4. Choose the implementation stack after recording requirements and trade-offs.
-5. Keep the first software prototype separate from any physical robot or consequential autonomous capability.
+5. Run a small governance experiment with synthetic participants and fictional resources.
+6. Keep the first software prototype separate from any physical robot or consequential autonomous capability.
