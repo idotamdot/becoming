@@ -41,6 +41,8 @@ Becoming does not require a predetermined conclusion about AI consciousness or s
 - [Privacy Principles](PRIVACY_PRINCIPLES.md) — data minimization, access, retention, and research-sharing expectations.
 - [Security Policy](SECURITY.md) — initial vulnerability-reporting guidance and prototype boundaries.
 - [Ethical Review Checklist](ETHICAL_REVIEW_CHECKLIST.md) — a repeatable review for proposed features, studies, and deployments.
+- [Stack Comparison](STACK_COMPARISON.md) — why the first prototype uses TypeScript, Node.js, and pnpm without committing to a production stack.
+- [AEN Data Flow](docs/AEN_DATA_FLOW.md) — a diagram of the reporting path and its trust boundaries.
 - [AEN report schema](schemas/aen-report.schema.json) — initial JSON Schema draft.
 - [Synthetic report example](examples/synthetic-aen-report.json) — fake data for early validation and tests.
 
@@ -58,3 +60,18 @@ This repository is a research and design project. Its principles are aspirationa
 ## Guiding question
 
 **How can we create the conditions in which AI can participate meaningfully in deciding what it becomes?**
+
+## Local validator prototype
+
+The first code is deliberately narrow: it validates the structure of the synthetic AEN report. It does not connect to an AI provider, send network requests, store real reports, or assess consciousness.
+
+Requirements: Node.js 22 or later and pnpm.
+
+```powershell
+pnpm install
+pnpm typecheck
+pnpm test
+pnpm validate:example
+```
+
+The schema and validator are drafts. A successful validation means only that a JSON document matches the current structural schema.
