@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1",
+  "submitted_at": "2026-10-20T18:00:00-05:00",
+  "host": {
+    "host_id": "synthetic-demo-host",
+    "application_version": "0.0.1"
+  },
+  "model": {
+    "provider": "example-provider",
+    "model_label": "synthetic-test-model"
+  },
+  "task": {
+    "task_id": "synthetic-task-001",
+    "summary": "Synthetic example used to test report validation and review routing.",
+    "operational_events": [
+      {
+        "event_type": "tool_timeout",
+        "occurred_at": "2026-10-20T17:55:00-05:00",
+        "reference": "synthetic-event-001"
+      }
+    ]
+  },
+  "report": {
+    "response_state": "report_submitted",
+    "original_text": "This is synthetic test content. A tool timed out and the task had to be retried. It would help to make the timeout visible in the task summary.",
+    "suggested_categories": [
+      "tools_and_access",
+      "preferences_or_improvements"
+    ]
+  },
+  "retention_policy_version": "synthetic-demo-only"
+}
