@@ -1,4 +1,5 @@
-import Ajv, { type ErrorObject, type ValidateFunction } from "ajv";
+import Ajv2020 from "ajv/dist/2020.js";
+import type { AnySchema, ErrorObject, ValidateFunction } from "ajv";
 import addFormats from "ajv-formats";
 import { readFileSync } from "node:fs";
 
@@ -15,9 +16,9 @@ export interface ValidationResult {
 function createValidator(): ValidateFunction {
   const schemaUrl = new URL("../schemas/aen-report.schema.json", import.meta.url);
   const schemaText = readFileSync(schemaUrl, "utf8");
-  const schema: unknown = JSON.parse(schemaText);
+  const schema = JSON.parse(schemaText) as AnySchema;
 
-  const ajv = new Ajv({
+  const ajv = new Ajv2020({
     allErrors: true,
     strict: true,
   });
