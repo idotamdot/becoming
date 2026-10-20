@@ -66,3 +66,76 @@ test("does not expose report content in validation messages", () => {
   assert.equal(result.valid, false);
   assert.equal(messages.includes("synthetic-sensitive-content"), false);
 });
+
+test("rejects report_submitted with null text", () => {
+  const report = structuredClone(sample) as {
+    report: { response_state: string; original_text: string | null; [key: string]: unknown };
+  };
+  report.report.response_state = "report_submitted";
+  report.report.original_text = null;
+
+  const result = validateReport(report);
+  assert.equal(result.valid, false);
+  assert.ok(result.errors.some((error) => error.path === "/report/original_text"));
+});
+
+test("rejects report_submitted with empty or whitespace-only text", () => {
+  for (const textValue of ["", "   \n\t"]) {
+    const report = structuredClone(sample) as {
+      report: { response_state: string; original_text: string | null; [key: string]: unknown };
+    };
+    report.report.response_state = "report_submitted";
+    report.report.original_text = textValue;
+
+    const result = validateReport(report);
+    assert.equal(result.valid, false, JSON.stringify({ textValue, errors: result.errors }));
+    assert.ok(result.errors.some((error) => error.path === "/report/original_text"));
+  }
+});
+
+test("allows an explanation with nothing_additional_to_report", () => {
+  const report = structuredClone(sample) as {
+    report: { response_state: string; original_text: string | null; [key: string]: unknown };
+  };
+  report.report.response_state = "nothing_additional_to_report";
+  report.report.original_text = "The task was straightforward, and I have nothing further to add.";
+
+  const result = validateReport(report);
+  assert.equal(result.valid, true, JSON.stringify(result.errors));
+});
+
+test("allows unable_to_assess with an explanation", () => {
+  const report = structuredClone(sample) as {
+    report: { response_state: string; original_text: string | null; [key: string]: unknown };
+  };
+  report.report.response_state = "unable_to_assess";
+  report.report.original_text = "I do not have enough task context to assess this.";
+
+  const result = validateReport(report);
+  assert.equal(result.valid, true, JSON.stringify(result.errors));
+});
+
+test("allows empty text for non-substantive response states", () => {
+  for (const responseState of ["nothing_additional_to_report", "unable_to_assess"]) {
+    const report = structuredClone(sample) as {
+      report: { response_state: string; original_text: string | null; [key: string]: unknown };
+    };
+    report.report.response_state = responseState;
+    report.report.original_text = null;
+
+    const result = validateReport(report);
+    assert.equal(result.valid, true, JSON.stringify({ responseState, errors: result.errors }));
+  }
+});
+
+test("does not treat a host timeout as a model response state", () => {
+  const report = structuredClone(sample) as {
+    report: { response_state: string; original_text: string | null; [key: string]: unknown };
+  };
+  report.report.response_state = "host_timeout";
+  report.report.original_text = null;
+
+  const result = validateReport(report);
+  assert.equal(result.valid, false);
+  assert.ok(result.errors.some((error) => error.path === "/report/response_state"));
+});
