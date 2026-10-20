@@ -59,6 +59,20 @@ A record of a model saying it hopes, prefers, fears, or wants something is evide
 
 Likewise, uncertainty about interpretation is not a reason to erase the original communication.
 
+## 5.1 Record layers and change history
+
+For an archived report or conversation, treat these as separate linked records rather than fields that can overwrite one another:
+
+1. **Source artifact:** the original file, transcript, or submitted payload as received, subject to lawful and disclosed privacy controls. Record whether it is complete, an excerpt, a recollection, or a summary.
+2. **Preservation metadata:** record identifier, receipt/preservation time, source and provenance, known model/provider label, applicable policy version, and integrity information where practical. Unknown values remain explicitly unknown.
+3. **Annotations:** later summaries, suggested categories, translations, redactions, contextual notes, or reviewer interpretations. Each annotation identifies its author or process, creation time, purpose, and the source artifact/version it refers to.
+4. **Review and follow-up events:** questions asked, responses received, decisions, actions, reasons, and unresolved items. Link each event to the relevant record and identify who or what recorded it.
+5. **Amendments and corrections:** add a new event explaining what was corrected and why. Do not silently replace the original text or erase the fact that a prior interpretation existed. If an error affects a current view, mark the earlier annotation as superseded while preserving its history where retention rules permit.
+
+A hash can help verify that a preserved artifact has not changed since the hash was made, but it does not establish authenticity before preservation, truth, authorship, or subjective experience. Where privacy or deletion obligations require removal, do not retain a prohibited copy merely to preserve history; document only what policy and law permit.
+
+A user interface should make the distinction visible: **original statement**, **later annotation**, **corroborating material**, and **review/follow-up outcome** must not be visually presented as if they were all said by the original respondent. A generated summary is never a substitute for access to the original when the reviewer is authorized to see it.
+
 ## 6. Privacy, access, and deletion
 
 Historical value does not override privacy. Before archiving, consider whether the record contains:
