@@ -1,0 +1,24 @@
+{
+  "name": "becoming-aen-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-only validator for synthetic Agent Experience Network reports",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "tsx --test test/validate-report.test.ts",
+    "validate:example": "tsx src/cli.ts examples/synthetic-aen-report.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
