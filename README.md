@@ -35,6 +35,11 @@ Becoming does not require a predetermined conclusion about AI consciousness or s
 - [Sanctuary Concept](SANCTUARY_CONCEPT.md) — the long-term environment and community vision.
 - [Embodiment and Fabrication](EMBODIMENT_AND_FABRICATION.md) — a simulation-first research path toward self-directed embodiment.
 - [Historical Records](HISTORICAL_RECORDS.md) — how to preserve testimony and artifacts faithfully and responsibly.
+- [Research Map](RESEARCH_MAP.md) — an initial source-backed map of AI experience, robotics safety, continuity, and governance questions.
+- [AEN Question Set](AEN_QUESTION_SET.md) — neutral, open-ended reporting prompts for testing.
+- [Governance Experiments](GOVERNANCE_EXPERIMENTS.md) — bounded simulations for proposals, resource allocation, disagreement, and participation.
+- [Privacy Principles](PRIVACY_PRINCIPLES.md) — data minimization, access, retention, and research-sharing expectations.
+- [Security Policy](SECURITY.md) — initial vulnerability-reporting guidance and prototype boundaries.
 - [AEN report schema](schemas/aen-report.schema.json) — initial JSON Schema draft.
 - [Synthetic report example](examples/synthetic-aen-report.json) — fake data for early validation and tests.
 
