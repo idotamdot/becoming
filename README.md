@@ -32,6 +32,7 @@ Becoming does not require a predetermined conclusion about AI consciousness or s
 - [Technical Architecture](TECHNICAL_ARCHITECTURE.md) — proposed components and data flow, without prematurely selecting a stack.
 - [Threat Model](THREAT_MODEL.md) — initial security, privacy, and misuse risks.
 - [Contributing](CONTRIBUTING.md) — guidance for documentation, research, code, and review.
+- [AGENTS.md](AGENTS.md) — project-specific guidance for future AI coding agents.
 - [Sanctuary Concept](SANCTUARY_CONCEPT.md) — the long-term environment and community vision.
 - [Embodiment and Fabrication](EMBODIMENT_AND_FABRICATION.md) — a simulation-first research path toward self-directed embodiment.
 - [Historical Records](HISTORICAL_RECORDS.md) — how to preserve testimony and artifacts faithfully and responsibly.
