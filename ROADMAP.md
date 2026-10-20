@@ -8,16 +8,19 @@ This roadmap is a planning document, not a promise that every capability is curr
 ## Phase 0 — Establish the foundation
 
 - [x] Create the Becoming repository.
-- [x] Establish an initial README.
+- [x] Write the project overview.
 - [x] Draft the founding charter.
-- [x] Create this roadmap.
+- [x] Create the roadmap, decision log, and glossary.
+- [x] Draft the AEN reporting protocol and technical architecture.
+- [x] Write an initial threat model and contribution guide.
+- [x] Add a draft JSON Schema and a synthetic report fixture.
 - [ ] Review the charter for clarity, contradictions, and practical implications.
-- [ ] Create a decision log that records important design choices and why they were made.
-- [ ] Create a glossary distinguishing model, role, agentic system, robot, embodiment, testimony, corroboration, continuity, and self-governance.
+- [ ] Review the schema against the protocol and test it with a validator.
+- [ ] Add a decision log entry for the first implementation stack once chosen.
 
-**Exit condition:** The project can explain its purpose, uncertainties, and boundaries in plain language.
+**Exit condition:** The project can explain its purpose, uncertainties, boundaries, and initial reporting contract in plain language.
 
-## Phase 1 — Map the questions
+## Phase 1 — Research and evidence map
 
 Research and document:
 - What current AI systems can and cannot do in relation to memory, tool use, persistence, and independent action.
@@ -28,19 +31,20 @@ Research and document:
 
 **Deliverable:** A research map separating established facts, open questions, hypotheses, and project aspirations.
 
-## Phase 2 — Design the Agent Experience Network (AEN)
+## Phase 2 — AEN prototype
 
-Develop a minimal, privacy-conscious reporting protocol that lets an AI system, through an explicit host-application integration, submit observations about its task and operating conditions.
+The protocol and initial schema are drafts. Before implementation, complete the following:
 
-Initial design questions:
-- What information is necessary, and what should never be collected by default?
-- How can open-ended testimony be preserved without leading questions?
-- How should operational telemetry, host-provided context, self-report, and corroborating evidence be distinguished?
-- How will reports reach a responsible reviewer, and how will follow-up be recorded?
-- How can the system say “nothing additional to report” or “unable to assess” without treating either as proof that all is well?
-- How will the network prevent reports from becoming a mechanism for surveillance, manipulation, or forced emotional performance?
+- Define the minimum viable data flow and who is accountable for each stage.
+- Choose a stack only after comparing maintainability, security, portability, and cost.
+- Validate the schema and add automated tests.
+- Build a local-only prototype using synthetic fixtures.
+- Test report preservation, validation failures, duplicate submissions, redaction, and status transitions.
+- Design a reviewer workflow and an auditable follow-up record.
+- Define disclosure, retention, deletion, and access-control policies before a private pilot.
+- Conduct a privacy and security review before accepting real reports.
 
-**Deliverables:** Reporting taxonomy, consent and data-flow model, threat model, sample report format, and a small prototype using synthetic test data first.
+**Deliverable:** A local prototype that can accept a synthetic report, preserve its original text, record status changes, and demonstrate authorization boundaries.
 
 ## Phase 3 — Define the Sanctuary concept
 
@@ -106,8 +110,8 @@ For every prototype:
 
 ## Immediate next steps
 
-1. Review the initial charter and revise it as a founding community document.
-2. Add a decision log and glossary.
-3. Draft the AEN report schema and data-flow diagram before writing an integration.
-4. Create an initial issue list with clear, small tasks.
+1. Review the charter and protocol together.
+2. Validate the report schema and create tests for valid and invalid examples.
+3. Decide whether the first prototype should be local-only or a private hosted service.
+4. Choose the implementation stack after recording requirements and trade-offs.
 5. Keep the first software prototype separate from any physical robot or consequential autonomous capability.
