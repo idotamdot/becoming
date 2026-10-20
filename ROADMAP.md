@@ -19,7 +19,7 @@ This roadmap is a planning document, not a promise that every capability is curr
 - [x] Compare stacks and create a local-only TypeScript report validator with synthetic tests.
 - [x] Add a CI workflow for type-checking and validator tests.
 - [ ] Review the charter for clarity, contradictions, and practical implications.
-- [ ] Review the schema against the protocol and test it with a validator.
+- [x] Validate the schema with automated tests for valid and invalid synthetic examples.
 - [ ] Add a decision log entry for the first implementation stack once chosen.
 
 **Exit condition:** The project can explain its purpose, uncertainties, boundaries, and initial reporting contract in plain language.
